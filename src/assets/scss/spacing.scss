@@ -1,0 +1,70 @@
+$sizeUnit: rem;
+$marginKey: 'm';
+$paddingKey: 'p';
+$separator: '-';
+$sizes: (
+        ('0', 0),
+        ('1', 0.125),
+        ('2', 0.25),
+        ('3', 0.5),
+        ('4', 1),
+        ('5', 2),
+        ('6', 3),
+        ('7', 4),
+        ('8', 5),
+);
+$positions: (
+        ('a', ''),
+        ('x', ''),
+        ('y', ''),
+        ('t', 'top'),
+        ('r', 'right'),
+        ('b', 'bottom'),
+        ('l', 'left')
+);
+
+@function sizeValue($key, $value) {
+    @return if($key == 'none', 0, $value + $sizeUnit);
+}
+
+@each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+        margin: sizeValue($sizeKey, $sizeValue) !important;
+    }
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+        padding: sizeValue($sizeKey, $sizeValue) !important;
+    }
+    @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+        .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+            @if ($posKey =='a') {
+                margin: sizeValue($sizeKey, $sizeValue) !important;
+            } @else if ($posKey=='x') {
+                margin-left: sizeValue($sizeKey, $sizeValue) !important;
+                margin-right: sizeValue($sizeKey, $sizeValue) !important;
+            } @else if ($posKey=='y') {
+                margin-top: sizeValue($sizeKey, $sizeValue) !important;
+                margin-bottom: sizeValue($sizeKey, $sizeValue) !important;
+            } @else {
+                margin-#{$posValue}: sizeValue($sizeKey, $sizeValue) !important;
+            }
+        }
+        .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+
+            @if ($posKey =='a') {
+                padding: sizeValue($sizeKey, $sizeValue) !important;
+            } @else if ($posKey=='x') {
+                padding-left: sizeValue($sizeKey, $sizeValue) !important;
+                padding-right: sizeValue($sizeKey, $sizeValue) !important;
+            } @else if ($posKey=='y') {
+                padding-top: sizeValue($sizeKey, $sizeValue) !important;
+                padding-bottom: sizeValue($sizeKey, $sizeValue) !important;
+            } @else {
+                padding-#{$posValue}: sizeValue($sizeKey, $sizeValue) !important;
+            }
+        }
+    }
+}

@@ -6,6 +6,10 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
+import Buefy from 'buefy'
+
+Vue.use(Buefy)
+
 new Vue({
   router,
   store,
