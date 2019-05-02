@@ -25,7 +25,7 @@ export default {
                     info: 'I like backend development more than anything else in this world. I like to create highly scalable and organized applications',
                     languages: ['PHP', 'NodeJs', 'OOP'],
                     tools: [
-                        'Laravel','ExpressJs','Socket.io','Api Driven Architecture','REST','oAuth','MySql','MongoDB','Electron','Johnny-five'
+                        'Laravel','ExpressJs','Socket.io','Api Driven Architecture','REST','oAuth','MySql','MongoDB'
                     ]
                 },
                 additional: {
@@ -33,27 +33,30 @@ export default {
                     info: 'I like to research and learn a variety of new things. List could be too long but for readability purpose i am keeping it short',
                     tools: ['PhpStorm', 'Adobe XD', 'Git'],
                     others: [
-                        'Agile Development','Unix Shell','Apache','Web Security Management','Website Speed Improvement','Trello','Asana','Basecamp'
+                        'Agile Development','Unix Shell','Web Security Management','Website Speed Improvement','Trello','Asana','Basecamp'
                     ]
                 }
             },
             projects: [
                 {
-                    title: 'Tweakity - Crow sourced Testing Platform',
-                    info: '',
-                    image: '/img/tweakity_screen_capture.png',
+                    title: 'Tweakity - Crowd sourced Testing Platform',
+                    info: 'Tweakity is a communication channel for developers and users. It focus upon making the relationship between developers and users more strong and productive',
+                    image: '/img/portfolio/tweakity.png',
+                    full: '/img/portfolio/tweakity-hd.png',
                     tech_stack: ['Laravel', 'MySql', 'NuxtJs', 'VueJs', 'Bulma', 'SASS']
                 },
                 {
                     title: 'Ollie - Smart Home Monitoring System',
                     info: '',
-                    image: '/img/tweakity_screen_capture.png',
+                    image: '/img/portfolio/ollie.png',
+                    full: '/img/portfolio/ollie-hd.png',
                     tech_stack: ['Node Js', 'Express Js', 'Socket.io', 'Arduino Uno', 'Gulp', 'SASS']
                 },
                 {
                     title: 'LocateMyArea - Crow sourced Testing Platform',
                     info: '',
-                    image: '/img/tweakity_screen_capture.png',
+                    image: '/img/portfolio/locatemyarea.png',
+                    full: '/img/portfolio/locatemyarea-hd.png',
                     tech_stack: ['Laravel', 'MySql',  'BootStrap', 'SASS']
                 }
             ]
@@ -73,11 +76,11 @@ export default {
   <div>
 
       <div class="hero my-4 mt-6 has-text-centered">
-          <h1 class="hero__title has-text-weight-semibold is-family-secondary">
-                Full Stack Developer
+          <h1 class="hero__title is-family-secondary fade-in">
+                Full Stack Web Developer
           </h1>
-          <div class="hero__info">
-              I develop highly scalable and beautiful websites,
+          <div class="hero__info fade-in">
+              I develop highly scalable, beautiful and secure websites, <br>
               and I am proud of what I do
           </div>
           <div class="hero__img_container my-5">
@@ -89,20 +92,20 @@ export default {
           </div>
       </div>
 
-      <div class="greeting  py-6 has-text-centered has-text-white">
-          <div class="container">
-              <div class="greeting__title has-text-weight-bold is-size-2 py-3">
+      <div class="greeting has-text-centered has-text-white">
+          <div class="container greeting__message">
+              <div class="greeting__title is-family-secondary has-text-weight-bold is-size-2 py-3">
                   Hi, I am Lakhveer. Nice to meet you
               </div>
-              <div class="greeting__info px-7">
+              <div class="greeting__info px-7 fade-in">
                   I am passionate, dedicated and curious web developer, I started learning web designing almost 4 years ago as hobby,
                   I created my own websites for fun, then started to learn programming more deeply.
-                  By now, I have worked with number of companies
+                  By now, I have worked with number of companies such as <strong class="has-text-white">Hatch2web</strong>, <strong class="has-text-white">Itmatic</strong> and others
               </div>
           </div>
 
       </div>
-      <div class="container" style="margin-top: -90px;">
+      <div class="container skills__container fade-in" style="">
           <div class="box has-text-centered">
               <div class="columns">
                   <div class="column skills__border-right">
@@ -118,14 +121,14 @@ export default {
 
                           </div>
                           <div class="skills__subtitle has-text-primary">
-                              Languages I Use
+                              Tools I Use
                           </div>
                           <div class="skills__subtitle-info">
                               {{ skills.frontend.languages.join(', ')}}
 
                           </div>
                           <div class="skills__subtitle has-text-primary">
-                              Libraries and Frameworks
+                              Other Skills
                           </div>
 
                           <div class="skills__items">
@@ -202,7 +205,7 @@ export default {
           </div>
       </div>
 
-      <div class="container portfolio has-text-centered my-7">
+      <div class="container portfolio has-text-centered my-7 fade-in">
           <h1 class="portfolio__title has-text-weight-semibold is-size-1 is-family-secondary">
               My Recent Work
           </h1>
@@ -211,10 +214,10 @@ export default {
               <a href="#">Email me</a>
           </div>
           <div class="portfolio__projects columns mt-5 pa-5">
-              <div v-for="(i,index) in 3" class="column">
+              <div v-for="(project,index) in projects" class="column is-flex">
                   <div class="portfolio__item" @click="showProject(index)">
                       <div class="portfolio__img-container">
-                          <img src="/img/tweakity_screen_capture.png" alt="" class="portfolio__img">
+                          <img :src="project.image" alt="" class="portfolio__img">
                       </div>
                   </div>
               </div>
@@ -235,7 +238,7 @@ export default {
               are looking for partnership or just want to say hello.
           </div>
           <div class="footer__email has-text-primary has-text-weight-semibold">
-              bawa93lakhveer@gmail.com
+              bawa93lakhveer@gmail.com | +1 647-539-2348
           </div>
 
 
@@ -261,17 +264,19 @@ export default {
 
 <style lang="scss">
     $primary: #15D17A;
+    $family-secondary: 'Kanit', sans-serif;
+
 
     .box {
         min-height: 80vh;
     }
     .hero {
         &__title {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
         }
         &__info {
-
+            font-size: 1.3em;
         }
         &__img {
             max-width: 200px;
@@ -284,53 +289,93 @@ export default {
         }
         &__illustration {
 
-            max-width: 30%;
+            max-width: 50%;
             height: auto;
         }
 
     }
 
     .greeting {
+        margin-top:-20px;
         background: #15d17a;
         background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzE1ZDE3YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0NWM2OGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
         background: -moz-linear-gradient(top, #15d17a 1%, #45c68a 100%);
         background: -webkit-linear-gradient(top, #15d17a 1%,#45c68a 100%);
         background: linear-gradient(to bottom, #15d17a 1%,#45c68a 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15d17a', endColorstr='#45c68a',GradientType=0 );
-        height: 45vh;
+        &__message {
+            padding-top: 7rem;
+            padding-bottom: 14rem;
 
+        }
         &__title {
-            font-size: 1.3em;
+            font-size: 2.3em;
+            padding-bottom: 1em;
+        }
+        &__info {
+            width: 100ch;
+            margin: auto;
+            line-height: 1.6;
+            font-size: 1.15rem;
         }
     }
     .skills {
         min-height: 30vh;
         text-align: center;
+        padding-top: 2rem;
 
+        &__container {
+            margin-top: -7rem;
+        }
         &__border-right {
             border-right: 1px solid #eee;
         }
-        &__icon {
+        &__subtitle {
+            font-weight: 500;
+            font-size: 1rem;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
 
-            max-width: 64px;
-            height: auto;
+        }
+        &__icon {
+            &_container {
+                padding-bottom: 1rem;
+            }
+
+            width: 64px;
+            height: 64px;
+
+            fill: red;
         }
         &__title {
             font-size: 1.3rem;
-            font-weight: bold;
-            padding: 12px 0;
+            font-weight: 600;
+            padding: 1rem 0;
+            font-family: $family-secondary;
         }
         &__info {
             font-size: .90rem;
             margin: auto;
             max-width: 34ch;
             margin-bottom: .8rem;
+            height: 90px;
+            line-height: 1.6;
+        }
+        ul {
+            padding-top: 1rem;
+            li {
+                padding-bottom: .3rem;
+            }
         }
     }
 
     .portfolio {
         &__title {
             font-size: 1.6rem;
+        }
+        &__info {
+            font-size: 1.1rem;
+
         }
         &__item {
             text-align: center;
@@ -346,6 +391,10 @@ export default {
             max-height: 300px;
             object-fit: cover;
             margin: auto;
+        }
+        &__img {
+            object-fit: cover;
+            height: 300px;
         }
     }
 
@@ -376,6 +425,9 @@ export default {
         &__bar {
 
         }
+    }
+    .fade-in {
+        animation: fade-in 1.4s;
     }
 </style>
 

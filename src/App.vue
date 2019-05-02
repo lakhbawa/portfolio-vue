@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss">
 // Import Bulma's core
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Titillium+Web:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Kanit:500,600|Roboto:400,500');
 
 @import "./assets/scss/main";
 
@@ -46,7 +46,7 @@ $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 $family-sans-serif: 'Roboto', sans-serif;
-$family-secondary: 'Titillium Web', sans-serif;
+$family-secondary: 'Kanit', sans-serif;
 $fullhd-enabled:false;
 // Import Bulma and Buefy styles
 @import "~bulma";
