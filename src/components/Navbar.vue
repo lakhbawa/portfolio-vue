@@ -1,8 +1,25 @@
+<script>
+export default {
+
+    methods: {
+        goto(refName) {
+            var element = this.$refs[refName];
+            console.log(element);
+            var top = element.offsetTop;
+
+            window.scrollTo(0, top);
+        },
+        goToBottom(){
+            window.scrollTo(0,document.body.scrollHeight);
+        }
+    }
+}
+</script>
 <template>
     <div class="container">
         <nav class="navbar is-transparent">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
+                <a class="navbar-item" href="/">
                     <img src="/img/logo.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
                 </a>
                 <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -19,7 +36,7 @@
 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a class="button button is-primary is-outlined" href="#">
+                            <a @click="goToBottom" class="button button is-primary is-outlined" href="#contact">
                                 Say Hello
                             </a>
                         </div>

@@ -59,6 +59,15 @@ export default {
                                 </div>
                             </div>
 
+                            <div v-if="project.url" class="project__section-container">
+                                <div class="project__section has-text-primary is-family-secondary">
+                                    URL
+                                </div>
+                                <div class="project__tech_stack">
+                                    <a :href="project.url">{{ project.url}}</a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>

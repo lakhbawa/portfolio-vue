@@ -14,7 +14,7 @@ export default {
             skills: {
                 frontend: {
                     title: 'Frontend Development',
-                    info: 'I like to make the things beautiful as well as useful. One thing that I would like to tell you, I am Bulma fan.',
+                    info: 'I like to make things beautiful as well as user-friendly. I give more importance to usability than outside look of any website',
                     languages: ['HTML', 'JavaScaript', 'SASS', 'CSS', 'Processing'],
                     tools: [
                         'VueJs','NuxtJs','Webpack','Bootstrap','Bulma','Vuetify','jQuery','Charts.Js'
@@ -43,7 +43,8 @@ export default {
                     info: 'Tweakity is a communication channel for developers and users. It focus upon making the relationship between developers and users more strong and productive',
                     image: '/img/portfolio/tweakity.png',
                     full: '/img/portfolio/tweakity-hd.png',
-                    tech_stack: ['Laravel', 'MySql', 'NuxtJs', 'VueJs', 'Bulma', 'SASS']
+                    tech_stack: ['Laravel', 'MySql', 'NuxtJs', 'VueJs', 'Bulma', 'SASS'],
+                    url: 'http://tweakity.com'
                 },
                 {
                     title: 'Ollie - Smart Home Monitoring System',
@@ -66,6 +67,13 @@ export default {
         showProject(index) {
             this.current_project = this.projects[index];
             this.isModalActive = true;
+        },
+        goto(refName) {
+            var element = this.$refs[refName];
+            console.log(element);
+            var top = element.offsetTop;
+
+            window.scrollTo(0, top);
         }
     }
 }
@@ -75,10 +83,11 @@ export default {
 <template>
   <div>
 
-      <div class="hero my-4 mt-6 has-text-centered">
-          <h1 class="hero__title is-family-secondary fade-in">
+      <section class="hero my-4 mt-6 has-text-centered">
+          <h2 class="is-hidden" ref="introduction">Lakhveer Bawa - Full Stack Web Developer</h2>
+          <h2 class="hero__title is-family-secondary fade-in">
                 Full Stack Web Developer
-          </h1>
+          </h2>
           <div class="hero__info fade-in">
               I develop highly scalable, beautiful and secure websites, <br>
               and I am proud of what I do
@@ -88,11 +97,13 @@ export default {
           </div>
           
           <div class="hero__illustration-container">
-              <img class="hero__illustration" src="/img/hero-green.svg" alt="">
+              <img class="hero__illustration" src="/img/hero-green.svg" alt="Web Development illustration">
           </div>
-      </div>
+      </section>
 
-      <div class="greeting has-text-centered has-text-white">
+      <section class="greeting has-text-centered has-text-white">
+          <h2 class="is-hidden" ref="greet">Who am I</h2>
+
           <div class="container greeting__message">
               <div class="greeting__title is-family-secondary has-text-weight-bold is-size-2 py-3">
                   Hi, I am Lakhveer. Nice to meet you
@@ -104,14 +115,18 @@ export default {
               </div>
           </div>
 
-      </div>
-      <div class="container skills__container fade-in" style="">
+      </section>
+      <section class="container skills__container fade-in" style="">
+          <h2 class="is-hidden" ref="skills">My Skills</h2>
+
           <div class="box has-text-centered">
               <div class="columns">
-                  <div class="column skills__border-right">
+                  <section class="column skills__border-right">
+                      <h2 class="is-hidden ">Frontend Skills</h2>
+
                       <div class="skills">
                           <div class="skills__icon_container">
-                              <img class="skills__icon" src="/img/designer.svg" alt="">
+                              <img class="skills__icon" src="/img/designer.svg" alt="Frontend Development Symbol">
                           </div>
                           <div class="skills__title has-text-primary">
                               {{ skills.frontend.title}}
@@ -138,11 +153,13 @@ export default {
                               </ul>
                           </div>
                       </div>
-                  </div>
-                  <div class="column  skills__border-right">
+                  </section>
+                  <section class="column  skills__border-right">
+                      <h2 class="is-hidden ">Backend Skills</h2>
+
                       <div class="skills">
                           <div class="skills__icon_container">
-                              <img class="skills__icon" src="/img/laptop-code-solid.svg" alt="">
+                              <img class="skills__icon" src="/img/laptop-code-solid.svg" alt="backend symbol">
                           </div>
                           <div class="skills__title has-text-primary">
                               {{ skills.backend.title}}
@@ -169,11 +186,13 @@ export default {
                               </ul>
                           </div>
                       </div>
-                  </div>
-                  <div class="column">
+                  </section>
+                  <section class="column">
+                      <h2 class="is-hidden ">Other Skills</h2>
+
                       <div class="skills">
                           <div class="skills__icon_container">
-                              <img class="skills__icon" src="/img/life-ring-regular.svg" alt="">
+                              <img class="skills__icon" src="/img/life-ring-regular.svg" alt="Other Skills Symbol">
                           </div>
                           <div class="skills__title has-text-primary">
                               {{ skills.additional.title}}
@@ -200,21 +219,23 @@ export default {
                               </ul>
                           </div>
                       </div>
-                  </div>
+                  </section>
               </div>
           </div>
-      </div>
+      </section>
 
-      <div class="container portfolio has-text-centered my-7 fade-in">
-          <h1 class="portfolio__title has-text-weight-semibold is-size-1 is-family-secondary">
+      <section class="container portfolio has-text-centered my-7 fade-in">
+          <h2 class="is-hidden">My Recent Work</h2>
+
+          <div class="portfolio__title has-text-weight-semibold is-size-1 is-family-secondary">
               My Recent Work
-          </h1>
+          </div>
           <div class="portfolio__info">
               Here is list of few website projects created by me. want to see more?
-              <a href="#">Email me</a>
+              <a  @click="goto('contact')">Email me</a>
           </div>
           <div class="portfolio__projects columns mt-5 pa-5">
-              <div v-for="(project,index) in projects" class="column is-flex">
+              <div v-for="(project,index) in projects" :key="index" class="column is-flex">
                   <div class="portfolio__item" @click="showProject(index)">
                       <div class="portfolio__img-container">
                           <img :src="project.image" alt="" class="portfolio__img">
@@ -224,10 +245,12 @@ export default {
 
 
           </div>
-      </div>
+      </section>
 
       <footer class="footer has-background-dark has-text-white has-text-centered pa-4">
-            <div class="footer__title is-family-secondary mb-4">Contact</div>
+          <h2 class="is-hidden" ref="contact">Contact Details</h2>
+
+          <div class="footer__title is-family-secondary mb-4">Contact</div>
 
           <div class="footer__subtitle">
               I'd Love To Hear From You.
@@ -245,12 +268,19 @@ export default {
           <div class="footer__bar px-2 container mt-5" style="border-top:1px solid #eee;padding-top:10px;">
               <div class="columns">
                   <div class="column has-text-left">
-                      <img class="footer__icon" src="/img/github-brands.svg" alt="">
-                      <img class="footer__icon" src="/img/linkedin-brands.svg" alt="">
+                      <a href="https://github.com/bawa93" target="_blank">
+                      <img class="footer__icon" src="/img/github-brands.svg" alt="Github Link">
+                      </a>
+                        &nbsp;&nbsp;
+                      <a href="https://www.linkedin.com/in/bawageek/" target="_blank">
+                       <img class="footer__icon" src="/img/linkedin-brands.svg" alt="Linkedin Link">
+                      </a>
+                      
+                     
 
                   </div>
                   <div class="column has-text-right">
-                      <img class="footer__icon" src="/img/logo.svg" alt="" style="  vertical-align: middle;"> Created by me with                       <img class="footer__icon" src="/img/heart-solid.svg" alt="" style="  vertical-align: middle;">
+                      <img class="footer__icon" src="/img/logo.svg" alt="Lakhveerbawa.com logo" style="  vertical-align: middle;"> Created by me with                       <img class="footer__icon" src="/img/heart-solid.svg" alt="" style="  vertical-align: middle;">
 
                   </div>
               </div>
@@ -313,7 +343,7 @@ export default {
             padding-bottom: 1em;
         }
         &__info {
-            width: 100ch;
+            max-width: 100ch;
             margin: auto;
             line-height: 1.6;
             font-size: 1.15rem;
@@ -378,6 +408,7 @@ export default {
 
         }
         &__item {
+            cursor: pointer;
             text-align: center;
             padding:10px;
             overflow: hidden;
@@ -385,6 +416,7 @@ export default {
             -webkit-border-radius: 14px;
             -moz-border-radius: 14px;
             border-radius: 14px;
+            margin: auto;
         }
         &__img-container {
             max-width: 300px;
