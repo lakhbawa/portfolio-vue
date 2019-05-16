@@ -8,6 +8,10 @@ Vue.config.productionTip = false
 
 import Buefy from 'buefy'
 
+import vueScrollto from 'vue-scrollto'
+
+Vue.use(vueScrollto)
+
 Vue.use(Buefy)
 
 new Vue({

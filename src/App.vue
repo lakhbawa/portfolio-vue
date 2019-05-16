@@ -15,9 +15,6 @@ export default {
 
 <style lang="scss">
 // Import Bulma's core
-html {
-  scroll-behavior: smooth;
-}
 @import url('https://fonts.googleapis.com/css?family=Kanit:500,600|Roboto:400,500');
 
 @import "./assets/scss/main";

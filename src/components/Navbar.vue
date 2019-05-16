@@ -20,7 +20,7 @@ export default {
         <nav class="navbar is-transparent">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="/img/logo.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+                    <img src="/img/logo.svg" alt="Lakhveer bawa" width="112" height="28">
                 </a>
                 <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                     <span></span>
@@ -36,7 +36,7 @@ export default {
 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a @click="goToBottom" class="button button is-primary is-outlined" href="#contact">
+                            <a @click="goToBottom" class="button button is-primary is-outlined">
                                 Say Hello
                             </a>
                         </div>

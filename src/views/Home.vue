@@ -68,12 +68,8 @@ export default {
             this.current_project = this.projects[index];
             this.isModalActive = true;
         },
-        goto(refName) {
-            var element = this.$refs[refName];
-            console.log(element);
-            var top = element.offsetTop;
-
-            window.scrollTo(0, top);
+        goToBottom(){
+            window.scrollTo(0,document.body.scrollHeight);
         }
     }
 }
@@ -232,7 +228,7 @@ export default {
           </div>
           <div class="portfolio__info">
               Here is list of few website projects created by me. want to see more?
-              <a  @click="goto('contact')">Email me</a>
+              <a  @click="goToBottom">Email me</a>
           </div>
           <div class="portfolio__projects columns mt-5 pa-5">
               <div v-for="(project,index) in projects" :key="index" class="column is-flex">
@@ -248,7 +244,7 @@ export default {
       </section>
 
       <footer class="footer has-background-dark has-text-white has-text-centered pa-4">
-          <h2 class="is-hidden" ref="contact">Contact Details</h2>
+          <h2 class="is-hidden" id="contactme">Contact Details</h2>
 
           <div class="footer__title is-family-secondary mb-4">Contact</div>
 
