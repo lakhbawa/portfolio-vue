@@ -89,7 +89,7 @@ export default {
               and I am proud of what I do
           </div>
           <div class="hero__img_container my-5">
-              <img class="hero__img" src="/img/profile-image-sitting.svg" alt="Lakhveer Bawa Image">
+              <img class="hero__img" src="/img/my-photo.jpg" alt="Lakhveer Bawa Image">
           </div>
           
           <div class="hero__illustration-container">
