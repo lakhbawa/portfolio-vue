@@ -31,7 +31,7 @@ export default {
                 additional: {
                     title: 'Everything Else',
                     info: 'I like to research and learn a variety of new things. List could be too long but for readability purpose i am keeping it short',
-                    tools: ['PhpStorm', 'Adobe XD',, 'Figma', 'Git'],
+                    tools: ['PhpStorm', 'Adobe XD', 'Figma', 'Git'],
                     others: [
                         'Agile Development','Unix Shell','Web Security Management','Website Speed Improvement','Trello','Asana','Basecamp'
                     ]
