@@ -17,27 +17,35 @@ export default {
                     info: 'I like to make things beautiful as well as user-friendly. I give more importance to usability than outside look of any website',
                     languages: ['HTML', 'JavaScaript', 'SASS', 'CSS', 'Processing'],
                     tools: [
-                        'VueJs','NuxtJs','Webpack','Bootstrap','Bulma','Vuetify','jQuery','Charts.Js'
+                        'VueJs','NuxtJs','Angular', 'Webpack','Bootstrap','Bulma','Vuetify','jQuery','Charts.Js'
                     ]
                 },
                 backend: {
                     title: 'Backend Development',
                     info: 'I like backend development more than anything else in this world. I like to create highly scalable and organized applications',
-                    languages: ['PHP', 'NodeJs', 'OOP'],
+                    languages: ['PHP', 'NodeJs', 'Java', 'TypeScript'],
                     tools: [
-                        'Laravel','ExpressJs','Socket.io','Api Driven Architecture','REST','oAuth','MySql','MongoDB'
+                        'Laravel','Symfony', 'ExpressJs','Socket.io','Api Driven Architecture','REST','oAuth','MySql','MongoDB'
                     ]
                 },
                 additional: {
                     title: 'Everything Else',
                     info: 'I like to research and learn a variety of new things. List could be too long but for readability purpose i am keeping it short',
-                    tools: ['PhpStorm', 'Adobe XD', 'Git'],
+                    tools: ['PhpStorm', 'Adobe XD',, 'Figma', 'Git'],
                     others: [
                         'Agile Development','Unix Shell','Web Security Management','Website Speed Improvement','Trello','Asana','Basecamp'
                     ]
                 }
             },
             projects: [
+                {
+                    title: 'Castkro - Where Talent Meets Opportunity',
+                    info: 'Castkro is platform to connect talented Performers (eg. Actor, Actors, Directors) with the Content Creators and Casting Directors. On Castkro, the talent may range from scriptwriters to Lead actors.',
+                    image: '/img/portfolio/castkro_homepage_screenshot.jpg',
+                    full: '/img/portfolio/castkro_full_page.jpg',
+                    tech_stack: ['Laravel', 'MySql', 'NuxtJs', 'VueJs', 'Vuetify', 'SASS', 'Docker', 'Digital Ocean'],
+                    url: 'https://www.castkro.com'
+                },
                 {
                     title: 'Tweakity - Crowd sourced Testing Platform',
                     info: 'Tweakity is a communication channel for developers and users. It focus upon making the relationship between developers and users more strong and productive',
@@ -89,7 +97,7 @@ export default {
               and I am proud of what I do
           </div>
           <div class="hero__img_container my-5">
-              <img class="hero__img" src="/img/my-photo.jpg" alt="Lakhveer Bawa Image">
+              <img class="hero__img" src="/img/my_photo2.png" alt="Lakhveer Bawa Image">
           </div>
           
           <div class="hero__illustration-container">
@@ -257,7 +265,7 @@ export default {
               are looking for partnership or just want to say hello.
           </div>
           <div class="footer__email has-text-primary has-text-weight-semibold">
-              bawa93lakhveer@gmail.com | +1 647-539-2348
+              bawa93lakhveer@gmail.com | +91-9501992079
           </div>
 
 
